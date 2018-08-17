@@ -21,20 +21,37 @@ use std::collections::BTreeMap;
 use pub_sub::PubSub;
 
 pub struct Colectivo {
-    _topics: BTreeMap<Topic, PubSub<Message>>
+    topics: BTreeMap<Topic, PubSub<Message>>
 } 
 
 impl Colectivo {
     pub fn new() -> Self {
-        unimplemented!()
+        Self {
+            topics: BTreeMap::new()
+        }
     }
 
-    pub fn producer<T: Into<Topic>>(_topic: T) -> Producer {
-        unimplemented!()
+    pub fn producer<T: Into<Topic>>(&mut self, t: T) -> Producer {
+        Producer::from_pubsub(self.get_pubsub(&t.into()))
     }
 
-    pub fn consumer<T: Into<Topic>>(_topic: T) -> Consumer {
-        unimplemented!()
+    pub fn consumer<T: Into<Topic>>(&mut self, t: T) -> Consumer {
+        let pubsub = self.get_pubsub(&t.into());
+        let subscription = pubsub.subscribe();
+        Consumer::from_subscription(subscription)
+    }
+
+    fn get_pubsub(&mut self, topic: &Topic) -> PubSub<Message> {
+        match self.topics.get(topic).map(|p| p.clone()) {
+            Some(p) => p,
+            None => self.new_topic(topic)
+        }
+    }
+
+    fn new_topic(&mut self, topic: &Topic) -> PubSub<Message>{
+        let pubsub = PubSub::new();
+        self.topics.insert(topic.clone(), pubsub.clone());
+        pubsub
     }
 }
 

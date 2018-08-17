@@ -1,16 +1,21 @@
-use topic::Topic;
+//use topic::Topic;
 use message::Message;
 use producer_error::ProducerError;
+use pub_sub::PubSub;
 
 pub struct Producer {
+    pubsub: PubSub<Message>
 }
 
 impl Producer {
-    pub fn new(_topic: Topic) -> Self {
-        unimplemented!()
+    pub(crate) fn from_pubsub(pubsub: PubSub<Message>) -> Self {
+        Self {
+            pubsub: pubsub
+        }
     }
 
-    pub fn send(_message: Message) -> Result<(), ProducerError> {
+    pub fn send(&self, message: Message) -> Result<(), ProducerError> {
+        drop(self.pubsub.send(message));
         unimplemented!()
     }
 }
