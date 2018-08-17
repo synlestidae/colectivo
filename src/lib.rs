@@ -15,6 +15,7 @@ pub mod payload;
 use topic::Topic;
 use consumer::Consumer;
 use producer::Producer;
+use std::convert::Into;
 
 pub struct Colectivo {
 } 
@@ -24,11 +25,11 @@ impl Colectivo {
         unimplemented!()
     }
 
-    pub fn producer(_topic: Topic) -> Producer {
+    pub fn producer(_topic: Into<Topic>) -> Producer {
         unimplemented!()
     }
 
-    pub fn consumer(_topic: Topic) -> Consumer {
+    pub fn consumer(_topic: Into<Topic>) -> Consumer {
         unimplemented!()
     }
 }
