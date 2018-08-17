@@ -5,8 +5,11 @@ extern crate pub_sub;
 pub mod message;
 pub mod message_key;
 pub mod topic;
+pub mod producer;
+pub mod consumer;
 
 pub struct Colectivo {
+
 }
 
 
