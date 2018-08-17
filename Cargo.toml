@@ -4,3 +4,5 @@ version = "0.1.0"
 authors = ["Mate Antunovic <mate(at)antunovic.nz>"]
 
 [dependencies]
+
+pub-sub = "2.0.0"
