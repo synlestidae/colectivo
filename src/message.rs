@@ -1,7 +1,19 @@
 use message_key::MessageKey;
+use std::convert::Into;
+use payload::Payload;
 
 pub struct Message {
     pub index: u64,
     pub key: MessageKey,
-    pub payload: Vec<u8>
+    pub payload: Payload
+}
+
+impl Message {
+    pub fn new<K: Into<MessageKey>, M: Into<Payload>>(key: K, payload: M) -> Self {
+        Message {
+            index: 0,
+            key: key.into(),
+            payload: payload.into()
+        }
+    }
 }

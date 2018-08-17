@@ -10,9 +10,27 @@ pub mod consumer;
 pub mod consumer_error;
 pub mod consumer_try_error;
 pub mod producer_error;
+pub mod payload;
+
+use topic::Topic;
+use consumer::Consumer;
+use producer::Producer;
 
 pub struct Colectivo {
+} 
 
+impl Colectivo {
+    pub fn new() -> Self {
+        unimplemented!()
+    }
+
+    pub fn producer(_topic: Topic) -> Producer {
+        unimplemented!()
+    }
+
+    pub fn consumer(_topic: Topic) -> Consumer {
+        unimplemented!()
+    }
 }
 
 
