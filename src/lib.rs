@@ -2,6 +2,7 @@
 
 pub mod message;
 pub mod message_key;
+pub mod topic;
 
 
 #[cfg(test)]
