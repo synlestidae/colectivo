@@ -1,5 +1,6 @@
 use topic::Topic;
 use message::Message;
+use producer_error::ProducerError;
 
 pub struct Producer {
 }
@@ -9,7 +10,7 @@ impl Producer {
         unimplemented!()
     }
 
-    pub fn publish(_message: Message) {
+    pub fn send(_message: Message) -> Result<(), ProducerError> {
         unimplemented!()
     }
 }

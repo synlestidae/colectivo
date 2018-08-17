@@ -7,6 +7,9 @@ pub mod message_key;
 pub mod topic;
 pub mod producer;
 pub mod consumer;
+pub mod consumer_error;
+pub mod consumer_try_error;
+pub mod producer_error;
 
 pub struct Colectivo {
 
