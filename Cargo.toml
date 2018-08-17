@@ -1,0 +1,6 @@
+[package]
+name = "colectivo"
+version = "0.1.0"
+authors = ["Mate Antunovic <mate(at)antunovic.nz>"]
+
+[dependencies]
