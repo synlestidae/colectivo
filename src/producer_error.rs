@@ -2,6 +2,7 @@ use std::sync::mpsc::SendError;
 use message::Message;
 use std::convert::From;
 
+#[derive(Debug)]
 pub enum ProducerError {
     SendError(SendError<Message>)
 }

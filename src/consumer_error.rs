@@ -1,6 +1,7 @@
 use std::sync::mpsc::RecvError;
 use std::convert::From;
 
+#[derive(Debug)]
 pub enum ConsumerError {
     RecvError(RecvError)
 }
