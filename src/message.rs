@@ -9,6 +9,12 @@ pub struct Message {
     pub payload: Payload
 }
 
+unsafe impl Sync for Message {
+}
+
+unsafe impl Send for Message {
+}
+
 impl Message {
     pub fn new<K: Into<MessageKey>, M: Into<Payload>>(key: K, payload: M) -> Self {
         Message {

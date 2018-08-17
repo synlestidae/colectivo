@@ -15,7 +15,7 @@ impl Producer {
     }
 
     pub fn send(&self, message: Message) -> Result<(), ProducerError> {
-        drop(self.pubsub.send(message));
-        unimplemented!()
+        self.pubsub.send(message)?;
+        Ok(())
     }
 }
