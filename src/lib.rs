@@ -15,9 +15,13 @@ pub mod payload;
 use topic::Topic;
 use consumer::Consumer;
 use producer::Producer;
+use message::Message;
 use std::convert::Into;
+use std::collections::BTreeMap;
+use pub_sub::PubSub;
 
 pub struct Colectivo {
+    _topics: BTreeMap<Topic, PubSub<Message>>
 } 
 
 impl Colectivo {
@@ -25,11 +29,11 @@ impl Colectivo {
         unimplemented!()
     }
 
-    pub fn producer(_topic: Into<Topic>) -> Producer {
+    pub fn producer<T: Into<Topic>>(_topic: T) -> Producer {
         unimplemented!()
     }
 
-    pub fn consumer(_topic: Into<Topic>) -> Consumer {
+    pub fn consumer<T: Into<Topic>>(_topic: T) -> Consumer {
         unimplemented!()
     }
 }

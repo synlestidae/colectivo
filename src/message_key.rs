@@ -1,3 +1,4 @@
+#[derive(Eq, PartialEq, Ord, PartialOrd, Clone)]
 pub struct MessageKey(Vec<u8>);
 
 impl MessageKey {

@@ -2,6 +2,7 @@ use message_key::MessageKey;
 use std::convert::Into;
 use payload::Payload;
 
+#[derive(Clone)]
 pub struct Message {
     pub index: u64,
     pub key: MessageKey,
