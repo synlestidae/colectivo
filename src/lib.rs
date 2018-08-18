@@ -13,6 +13,17 @@ pub mod producer_error;
 pub mod payload;
 pub mod colectivo;
 
+pub use message::*;
+pub use message_key::*;
+pub use topic::*;
+pub use producer::*;
+pub use consumer::*;
+pub use consumer_error::*;
+pub use consumer_try_error::*;
+pub use producer_error::*;
+pub use payload::*;
+pub use colectivo::*;
+
 #[cfg(test)]
 mod tests {
     use message::Message;
